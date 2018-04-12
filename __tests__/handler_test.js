@@ -70,6 +70,25 @@ describe('italk', () => {
 
   });
 
+  it('timeout_varargs:3', async () => {
+
+    const expected = ['任务完成'];
+    let i = 1;
+    for (; i <= 3; i++) {
+      const val = await handleMsg(handler, {c: 'timeout_varargs:3', id: 1}, async (req, res, handled) => {
+        expect(handled).toBe(true);
+        const val = await res.val;
+        expect(val).toBe(expected[i - 1]);
+        return val;
+      });
+      if (val === '任务完成') {
+        break;
+      }
+    }
+    expect(i).toBe(1);
+
+  });
+
   it('timeout:6', async () => {
     const expected = [void 0, '任务完成'];
     let i = 1;
