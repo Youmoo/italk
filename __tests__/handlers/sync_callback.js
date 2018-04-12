@@ -6,9 +6,7 @@ const help = `
 module.exports = {
   help,
   test({content}, cb) {
-    if (content === 'sync callback') {
-      cb();
-    }
+    cb(content === 'sync callback')
   },
   handle() {
     return 'pong';

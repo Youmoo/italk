@@ -7,8 +7,8 @@ module.exports = {
   help,
   test({content}, cb) {
     if (content === 'async callback') {
-      setTimeout(cb, 100);
-    }
+      setTimeout(cb, 1);
+    } else setTimeout(cb, 1, false)
   },
   handle() {
     return 'pong';

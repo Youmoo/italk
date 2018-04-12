@@ -17,10 +17,10 @@ const mockRes = () => {
   }
 };
 
-const mockReq = ({c: Content, u: FromUserName = 'test'}) => {
+const mockReq = ({c: Content, u: FromUserName = 'test', id: MsgId = nanoid()}) => {
   return {
     weixin: {
-      MsgId: nanoid(),
+      MsgId,
       Content, FromUserName,
       content: Content,
       user: FromUserName
